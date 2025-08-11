@@ -152,7 +152,8 @@ Any user request involving sending messages, emailing, contacting, following up,
 """
         f"Question: {question}"
     )
-    db = FAISS.load_local(FAISS_PATH, embedding_function=get_embedding_function())
+    db = FAISS.load_local(FAISS_PATH, embeddings=get_embedding_function())
+
     retriever = db.as_retriever()
 
     llm = ChatOpenAI(
