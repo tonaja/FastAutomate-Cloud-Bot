@@ -1,0 +1,44 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 4302 >>
+stream
+BT /F1 11 Tf 48 723 Td (# FastAutomate KB - Content Pack \(Part 1 of 2\): Seed JSONL + Site Extracts) Tj 0 -14 Td () Tj 0 -14 Td (This document packages the JSONL facts used to seed the KB. It includes core product boundaries) Tj 0 -14 Td (\(PrimeReachOut owns outreach/scheduling; PrimeLeads/PrimeRecruits discovery/screening only\).) Tj 0 -14 Td () Tj 0 -14 Td (## Seed JSONL Facts \(copy-ready\)) Tj 0 -14 Td () Tj 0 -14 Td ({"id": "about/company/fastautomate", "type": "about", "title": "What is FastAutomate?",) Tj 0 -14 Td ("audience": ["prospect", "customer", "internal"], "product": null, "body_md": "FastAutomate is) Tj 0 -14 Td (the corporate company that created and operates the Primius.ai platform.", "visibility":) Tj 0 -14 Td ("public", "sources": ["internal:user-notes"], "updated_at": "2025-08-10", "tags": ["company",) Tj 0 -14 Td ("about"], "region": "global"}) Tj 0 -14 Td ({"id": "about/platform/primius", "type": "about", "title": "What is Primius.ai?", "audience":) Tj 0 -14 Td (["prospect", "customer", "internal"], "product": null, "body_md": "Primius.ai is the SaaS) Tj 0 -14 Td (platform operated by FastAutomate where customers sign up, select, and use automation) Tj 0 -14 Td (products.", "visibility": "public", "sources": ["internal:user-notes"], "updated_at":) Tj 0 -14 Td ("2025-08-10", "tags": ["platform", "about"], "region": "global"}) Tj 0 -14 Td ({"id": "products/list", "type": "list", "title": "Products on Primius.ai", "audience":) Tj 0 -14 Td (["prospect", "customer", "internal"], "product": null, "body_md": "PrimeVision, PrimeLeads,) Tj 0 -14 Td (PrimeRecruits, PrimeReachOut, PrimeCRM.", "visibility": "public", "sources":) Tj 0 -14 Td (["internal:user-notes"], "updated_at": "2025-08-10", "tags": ["products"], "region": "global"}) Tj 0 -14 Td ({"id": "product/primeleads/summary", "type": "product_overview", "product": "PrimeLeads",) Tj 0 -14 Td ("title": "PrimeLeads - Lead discovery \(no outreach\)", "body_md": "PrimeLeads identifies,) Tj 0 -14 Td (enriches, scores, and ranks high?match leads from a URL?derived ICP. **Outreach and scheduling) Tj 0 -14 Td (are handled by PrimeReachOut.**", "visibility": "public", "updated_at": "2025-08-10", "tags":) Tj 0 -14 Td (["leads", "ICP", "enrichment", "ranking"], "region": "global", "sources":) Tj 0 -14 Td (["site:fastautomate-pdf"]}) Tj 0 -14 Td ({"id": "product/primerecruits/summary", "type": "product_overview", "product": "PrimeRecruits",) Tj 0 -14 Td ("title": "PrimeRecruits - Candidate sourcing & shortlisting \(no outreach\)", "body_md":) Tj 0 -14 Td ("PrimeRecruits discovers, screens, and shortlists candidates using LinkedIn?aligned parameters.) Tj 0 -14 Td (**Outreach and interview scheduling are handled by PrimeReachOut.**", "visibility": "public",) Tj 0 -14 Td ("updated_at": "2025-08-10", "tags": ["recruiting", "shortlist", "linkedin"], "region":) Tj 0 -14 Td ("global", "sources": ["site:fastautomate-pdf"]}) Tj 0 -14 Td ({"id": "product/primereachout/summary", "type": "product_overview", "product": "PrimeReachOut",) Tj 0 -14 Td ("title": "PrimeReachOut - Outreach, reply analysis & scheduling", "body_md": "PrimeReachOut is) Tj 0 -14 Td (the **dedicated system** for contacting leads/candidates, running multi?channel sequences,) Tj 0 -14 Td (analyzing replies, and coordinating calendars. It consumes inputs from PrimeLeads and) Tj 0 -14 Td (PrimeRecruits.", "visibility": "public", "updated_at": "2025-08-10", "tags": ["outreach",) Tj 0 -14 Td ("sequencing", "analytics", "calendar"], "region": "global", "sources": ["site:primius-pdf",) Tj 0 -14 Td ("site:fastautomate-pdf"]}) Tj 0 -14 Td ({"id": "product/primerecruits/cta-upload-jd", "type": "faq", "product": "PrimeRecruits",) Tj 0 -14 Td ("title": "How recruiters get started", "body_md": "Upload a job description \(PDF/DOC/TXT <=5MB\)) Tj 0 -14 Td (and let AI source and screen candidates to produce a shortlist. **To contact candidates or) Tj 0 -14 Td (schedule interviews, use PrimeReachOut.** Trial: free analysis of 5 candidates.", "visibility":) Tj 0 -14 Td ("public", "updated_at": "2025-08-10", "tags": ["onboarding", "trial"], "region": "global",) Tj 0 -14 Td ("sources": ["site:fastautomate-pdf"]}) Tj 0 -14 Td ({"id": "product/primeleads/lead-magnet", "type": "message", "product": "PrimeLeads", "title":) Tj ET
+endstream
+endobj
+3 0 obj
+<< /Length 1021 >>
+stream
+BT /F1 11 Tf 48 723 Td ("Lead magnet - Scan My Business", "body_md": "Enter your website to get a custom report and) Tj 0 -14 Td (leads in minutes. Free reports include **20 precision?targeted leads** aligned to your ICP and) Tj 0 -14 Td (a **customized sales script**.", "visibility": "public", "updated_at": "2025-08-10", "tags":) Tj 0 -14 Td (["lead-magnet", "free-reports"], "region": "global", "sources": ["site:fastautomate-pdf"]}) Tj 0 -14 Td ({"id": "taxonomy/naming/primevision-visionflow", "type": "taxonomy", "title": "Naming alignment) Tj 0 -14 Td (- PrimeVision vs VisionFlow", "body_md": "On Primius.ai, the RPA product is shown as) Tj 0 -14 Td (**VisionFlow**; in FastAutomate docs it's **PrimeVision**. Treat them as the same product) Tj 0 -14 Td (unless specified otherwise.", "visibility": "internal", "product": "PrimeVision", "updated_at":) Tj 0 -14 Td ("2025-08-10", "tags": ["taxonomy", "naming"], "region": "global", "sources":) Tj 0 -14 Td (["site:primius-pdf", "internal:fastautomate-kb"]}) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+6 0 obj
+<< /Type /Pages /Kids [ 4 0 R 5 0 R ] /Count 2 >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000004439 00000 n 
+0000005512 00000 n 
+0000005638 00000 n 
+0000005764 00000 n 
+0000005829 00000 n 
+trailer
+<< /Size 8 /Root 7 0 R >>
+startxref
+5878
+%%EOF
