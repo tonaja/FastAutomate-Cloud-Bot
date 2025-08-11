@@ -5,11 +5,10 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
 from get_embading_function import get_embedding_function
-from langchain_community.vectorstores import Chroma
+from langchain.vectorstores.faiss import FAISS  # Use FAISS here instead of Chroma
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
@@ -17,16 +16,11 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 print("Using API key:", api_key[:6] + "..." + api_key[-4:])  # for safety
 
-
-
-CHROMA_PATH = "chroma"
+FAISS_PATH = "faiss_index"  # Use this folder for FAISS persistence
 DATA_PATH = "data"
 
 
-
 def main():
-
-    # Check if the database should be cleared (using the --clear flag).
     parser = argparse.ArgumentParser()
     parser.add_argument("--reset", action="store_true", help="Reset the database.")
     args = parser.parse_args()
@@ -34,61 +28,48 @@ def main():
         print("✨ Clearing Database")
         clear_database()
 
-    # Create (or update) the data store.
     documents = load_documents()
     chunks = split_documents(documents)
-    add_to_chroma(chunks)
+    add_to_faiss(chunks)
 
 
 def load_documents():
-    document_loader = PyPDFDirectoryLoader(DATA_PATH)
-    return document_loader.load()
+    loader = PyPDFDirectoryLoader(DATA_PATH)
+    return loader.load()
 
 
 def split_documents(documents: list[Document]):
-    text_splitter = RecursiveCharacterTextSplitter(
+    splitter = RecursiveCharacterTextSplitter(
         chunk_size=800,
         chunk_overlap=80,
         length_function=len,
         is_separator_regex=False,
     )
-    return text_splitter.split_documents(documents)
+    return splitter.split_documents(documents)
 
 
-def add_to_chroma(chunks: list[Document]):
-    # Load the existing database.
-    db = Chroma(
-        persist_directory=CHROMA_PATH, embedding_function=get_embedding_function()
-    )
+def add_to_faiss(chunks: list[Document]):
+    embedding_fn = get_embedding_function()
 
-    # Calculate Page IDs.
+    if os.path.exists(FAISS_PATH):
+        db = FAISS.load_local(FAISS_PATH, embedding_fn)
+    else:
+        db = FAISS.from_documents(chunks, embedding_fn)
+
     chunks_with_ids = calculate_chunk_ids(chunks)
 
-    # Add or Update the documents.
-    existing_items = db.get(include=[])  # IDs are always included by default
-    existing_ids = set(existing_items["ids"])
-    print(f"Number of existing documents in DB: {len(existing_ids)}")
+    existing_ids = set(db.docstore._dict.keys())
+    new_chunks = [c for c in chunks_with_ids if c.metadata["id"] not in existing_ids]
 
-    # Only add documents that don't exist in the DB.
-    new_chunks = []
-    for chunk in chunks_with_ids:
-        if chunk.metadata["id"] not in existing_ids:
-            new_chunks.append(chunk)
-
-    if len(new_chunks):
+    if new_chunks:
         print(f"👉 Adding new documents: {len(new_chunks)}")
-        new_chunk_ids = [chunk.metadata["id"] for chunk in new_chunks]
-        db.add_documents(new_chunks, ids=new_chunk_ids)
-        db.persist()
+        db.add_documents(new_chunks)
+        db.save_local(FAISS_PATH)
     else:
         print("✅ No new documents to add")
 
 
 def calculate_chunk_ids(chunks):
-
-    # This will create IDs like "data/monopoly.pdf:6:2"
-    # Page Source : Page Number : Chunk Index
-
     last_page_id = None
     current_chunk_index = 0
 
@@ -97,25 +78,22 @@ def calculate_chunk_ids(chunks):
         page = chunk.metadata.get("page")
         current_page_id = f"{source}:{page}"
 
-        # If the page ID is the same as the last one, increment the index.
         if current_page_id == last_page_id:
             current_chunk_index += 1
         else:
             current_chunk_index = 0
 
-        # Calculate the chunk ID.
         chunk_id = f"{current_page_id}:{current_chunk_index}"
         last_page_id = current_page_id
 
-        # Add it to the page meta-data.
         chunk.metadata["id"] = chunk_id
 
     return chunks
 
 
 def clear_database():
-    if os.path.exists(CHROMA_PATH):
-        shutil.rmtree(CHROMA_PATH)
+    if os.path.exists(FAISS_PATH):
+        shutil.rmtree(FAISS_PATH)
 
 
 def query_rag(question: str) -> str:
@@ -172,28 +150,26 @@ Any user request involving sending messages, emailing, contacting, following up,
 - Always ground answers in KB content before responding.  
 
 """
- f"Question: {question}"
+        f"Question: {question}"
     )
-    db = Chroma(
-    persist_directory="chroma", 
-    embedding_function=get_embedding_function()
-)
+    db = FAISS.load_local(FAISS_PATH, embedding_function=get_embedding_function())
     retriever = db.as_retriever()
 
     llm = ChatOpenAI(
-    model="gpt-4",  
-    temperature=0,
-    api_key=api_key  )
-
+        model="gpt-4",
+        temperature=0,
+        api_key=api_key,
+    )
 
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
-        retriever=retriever
+        retriever=retriever,
     )
 
     result = qa_chain.invoke({"query": custom_prompt})
 
     return result["result"] if isinstance(result, dict) else result
+
 
 if __name__ == "__main__":
     main()
