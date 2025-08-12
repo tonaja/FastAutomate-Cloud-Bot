@@ -52,7 +52,11 @@ def add_to_faiss(chunks: list[Document]):
     embedding_fn = get_embedding_function()
 
     if os.path.exists(FAISS_PATH):
-        db = FAISS.load_local(FAISS_PATH, embedding_fn)
+        db = FAISS.load_local(
+            FAISS_PATH,
+            embedding_fn,
+            allow_dangerous_deserialization=True  # <-- Add this
+        )
     else:
         db = FAISS.from_documents(chunks, embedding_fn)
 
