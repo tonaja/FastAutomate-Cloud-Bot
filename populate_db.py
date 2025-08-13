@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import os
 import shutil
 from langchain_community.document_loaders import PyPDFDirectoryLoader
@@ -43,13 +44,22 @@ def add_to_faiss(chunks: list[Document]):
 
     if os.path.exists(CHROMA_PATH):
         # Load existing FAISS index and metadata
-        db = FAISS.load_local(CHROMA_PATH, embedding_fn)
+        db = FAISS.load_local(
+    CHROMA_PATH,
+    embedding_fn,
+    allow_dangerous_deserialization=True
+)
+
     else:
         # Create new FAISS index
         db = FAISS.from_documents(chunks, embedding_fn)
 
     # Calculate IDs and assign to chunks metadata
     chunks_with_ids = calculate_chunk_ids(chunks)
+
+    ids = [c.metadata["id"] for c in chunks_with_ids]
+    print("Unique IDs generated:", len(set(ids)), "out of", len(ids))
+
 
     # Filter out already existing document IDs
     existing_ids = set(db.docstore._dict.keys())
@@ -63,25 +73,17 @@ def add_to_faiss(chunks: list[Document]):
         print("✅ No new documents to add")
 
 
+
 def calculate_chunk_ids(chunks):
-    last_page_id = None
-    current_chunk_index = 0
-
     for chunk in chunks:
-        source = chunk.metadata.get("source")
-        page = chunk.metadata.get("page")
-        current_page_id = f"{source}:{page}"
-
-        if current_page_id == last_page_id:
-            current_chunk_index += 1
-        else:
-            current_chunk_index = 0
-
-        chunk_id = f"{current_page_id}:{current_chunk_index}"
-        last_page_id = current_page_id
-
-        chunk.metadata["id"] = chunk_id
-
+        # Use md5 hash of the chunk text to ensure uniqueness
+        content_hash = hashlib.md5(chunk.page_content.encode('utf-8')).hexdigest()
+        
+        source = chunk.metadata.get("source", "unknown_source")
+        page = chunk.metadata.get("page", "unknown_page")
+        
+        chunk.metadata["id"] = f"{source}:{page}:{content_hash}"
+    
     return chunks
 
 
