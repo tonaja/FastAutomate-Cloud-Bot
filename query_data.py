@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 
 print("Using API key:", api_key[:6] + "..." + api_key[-4:])  # for safety
 
