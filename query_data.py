@@ -14,7 +14,7 @@ load_dotenv()
 
 api_key = os.getenv("OPENAI_API_KEY")
 
-print("Using API key:", api_key[:6] + "..." + api_key[-4:])  # for safety
+
 
 FAISS_PATH = "faiss_index"  # Use this folder for FAISS persistence
 DATA_PATH = "data"
