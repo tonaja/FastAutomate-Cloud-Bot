@@ -10,7 +10,8 @@ from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 import sys
-sys.path.append(os.path.abspath("C:\\Users\\FaceGraph\\Downloads\\FastAutomate_PrimeLeads\\new-folder\\Prime_Leads"))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "C:\\Users\\FaceGraph\\Downloads\\FastAutomate_PrimeLeads\\new-folder\\Prime_Leads")))
+
 from main_graph import main_PrimeLeads
 
 

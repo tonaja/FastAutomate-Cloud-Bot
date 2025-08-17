@@ -10,8 +10,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, fil
 from dotenv import load_dotenv
 
 from query_data import query_rag
-
-sys.path.append(os.path.abspath("C:\\Users\\FaceGraph\\Downloads\\FastAutomate_PrimeLeads\\new-folder\\Prime_Leads"))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "C:\\Users\\FaceGraph\\Downloads\\FastAutomate_PrimeLeads\\new-folder\\Prime_Leads")))
 from main_graph import main_PrimeLeads
 
 load_dotenv()
