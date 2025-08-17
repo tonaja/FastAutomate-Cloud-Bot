@@ -1,42 +1,76 @@
+# telegram.py
 import os
+import re
+import sys
+import asyncio
+from urllib.parse import urlparse
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from dotenv import load_dotenv
-from query_data import query_rag
-from primeleads_runner import main_primeleads   # ✅ import your PrimeLeads function
 
-load_dotenv()  # Load local .env
+from query_data import query_rag
+
+sys.path.append(os.path.abspath("C:\\Users\\FaceGraph\\Downloads\\FastAutomate_PrimeLeads\\new-folder\\Prime_Leads"))
+from main_graph import main_PrimeLeads
+
+load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
-# simple dictionary to track user states
-user_state = {}
+# Simple in-memory state
+user_state = {}  # { user_id: "WAITING_PRIMELEADS_URL" }
+
+ASK_TOKEN = "[[ASK:PRIMELEADS_URL]]"
+
+def extract_url(text: str) -> str | None:
+    """Grab the first http(s) URL and validate it."""
+    m = re.search(r"(data/sample_website_url[^\s]+)", text, flags=re.IGNORECASE)
+    if not m:
+        return None
+    url = m.group(1)
+    parsed = urlparse(url)
+    if parsed.scheme in ("data") and parsed.netloc:
+        return url
+    return None
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Hi! I’m your chatbot. Send me a message.")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    user_message = update.message.text.strip()
+    text = (update.message.text or "").strip()
 
-    # ✅ Step 1: If we are waiting for a URL for PrimeLeads
-    if user_state.get(user_id) == "waiting_for_url":
-        url = user_message
-        await update.message.reply_text("⏳ Running PrimeLeads, please wait...")
+    # 1) If we're waiting for a PrimeLeads URL, try to extract it and run the tool
+    if user_state.get(user_id) == "WAITING_PRIMELEADS_URL":
+        url = extract_url(text)
+        if not url:
+            await update.message.reply_text("Please send a valid URL")
+            return
+
+        await update.message.reply_text("⏳ Running PrimeLeads…")
         try:
-            result = main_primeleads(url)
-            await update.message.reply_text(result)
+            # Run blocking function in a thread so we don't block the bot
+            result = await asyncio.get_running_loop().run_in_executor(None, main_PrimeLeads, url)
+            await update.message.reply_text(str(result))
         except Exception as e:
             await update.message.reply_text(f"⚠️ Error running PrimeLeads: {e}")
-        user_state[user_id] = None
+        finally:
+            user_state.pop(user_id, None)
         return
 
-    # ✅ Step 2: Normal flow - use query_rag
-    response = query_rag(user_message)
+    # 2) Normal flow: ask the LLM
+    response = query_rag(text)
 
-    # If query_rag asked for URL, set state
-    if "🔗 Please provide the URL" in response:
-        user_state[user_id] = "waiting_for_url"
+    # If the LLM asked for a PrimeLeads URL, set state and send a cleaned message
+    if ASK_TOKEN in response:
+        clean = response.replace(ASK_TOKEN, "").strip()
+        if not clean:
+            clean = "🔗 Please send the URL you want PrimeLeads to process."
+        user_state[user_id] = "WAITING_PRIMELEADS_URL"
+        await update.message.reply_text(clean)
+        return
 
+    # Otherwise just reply with the LLM answer
     await update.message.reply_text(response)
 
 if __name__ == "__main__":

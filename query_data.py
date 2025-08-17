@@ -157,6 +157,13 @@ Any user request involving sending messages, emailing, contacting, following up,
 - Never attribute outreach functions to PrimeLeads or PrimeRecruits.  
 - Always ground answers in KB content before responding.  
 
+
+## New Special Rule for PrimeLeads
+- If the user asks to **use PrimeLeads**, do NOT try to answer directly.
+- Instead, reply: "🔗 Please provide the URL you want PrimeLeads to process."
+- Wait for the user to provide the URL.
+- After the URL is provided, the system will call the function `main_primeleads(url)` to execute.
+- Keep your reply short and clear when asking for the URL.
 """
         f"Question: {question}"
     )
