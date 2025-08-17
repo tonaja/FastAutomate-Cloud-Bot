@@ -9,6 +9,10 @@ from langchain.vectorstores.faiss import FAISS
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
+import sys
+sys.path.append(os.path.abspath("C:\\Users\\FaceGraph\\Downloads\\FastAutomate_PrimeLeads\\new-folder\\Prime_Leads"))
+from main_graph import main_PrimeLeads
+
 
 load_dotenv()
 
@@ -177,7 +181,13 @@ Any user request involving sending messages, emailing, contacting, following up,
 
     result = qa_chain.invoke({"query": custom_prompt})
 
-    return result["result"] if isinstance(result, dict) else result
+    answer = result["result"] if isinstance(result, dict) else result
+
+    # --- NEW LOGIC: check if PrimeLeads is requested ---
+    if "prime leads" in question.lower():
+        return "🔗 Please provide the URL you want PrimeLeads to process."
+
+    return answer
 
 
 if __name__ == "__main__":

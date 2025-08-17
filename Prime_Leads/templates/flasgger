@@ -1,0 +1,8 @@
+{% extends "flasgger/base.html" %}
+
+{% block head %}
+  {{ super() }}
+  <script>
+    document.title = "PrimeFlow Recruit";
+  </script>
+{% endblock %}

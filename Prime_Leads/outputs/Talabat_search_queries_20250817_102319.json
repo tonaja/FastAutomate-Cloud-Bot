@@ -1,0 +1,123 @@
+[
+  {
+    "icpName": "Independent Quick-Service Restaurants (QSRs)",
+    "searchFilters": {
+      "industry": "Food & Beverage Services",
+      "companySize": "11–50",
+      "revenue": null,
+      "location": "Cairo, Egypt",
+      "fundingStage": "Bootstrapped",
+      "titleKeywords": [
+        "Owner",
+        "Restaurant Manager",
+        "Founder"
+      ],
+      "influencerTitles": [
+        "Head Chef"
+      ],
+      "keywordsInProfile": [
+        "delivery fleet",
+        "marketing budget",
+        "compete",
+        "aggregator discounts"
+      ],
+      "growthSignals": [
+        "competitors",
+        "dine-in traffic",
+        "new location",
+        "online ordering"
+      ]
+    },
+    "searchQuery": "(title:\"Owner\" OR title:\"Restaurant Manager\" OR title:\"Founder\") AND industry:\"Food & Beverage Services\" AND companySize:11-50 AND location:\"Cairo, Egypt\" AND fundingStage:\"Bootstrapped\" AND ((headline:\"delivery fleet\" OR summary:\"delivery fleet\") OR (headline:\"marketing budget\" OR summary:\"marketing budget\") OR (headline:\"compete\" OR summary:\"compete\")) AND ((headline:\"competitors\" OR summary:\"competitors\") OR (headline:\"dine-in traffic\" OR summary:\"dine-in traffic\") OR (headline:\"new location\" OR summary:\"new location\") OR (headline:\"online ordering\" OR summary:\"online ordering\"))"
+  },
+  {
+    "icpName": "Established Restaurant Chains (National & Regional)",
+    "searchFilters": {
+      "industry": "Food & Beverage Services",
+      "companySize": "501–1000",
+      "revenue": ">10M<50M USD",
+      "location": "Egypt",
+      "fundingStage": "Private Equity",
+      "titleKeywords": [
+        "Chief Marketing Officer",
+        "Head of Operations",
+        "Chief Executive Officer"
+      ],
+      "influencerTitles": [
+        "Digital Marketing Manager",
+        "Regional Operations Manager"
+      ],
+      "keywordsInProfile": [
+        "in-house delivery",
+        "operational overhead",
+        "customer data",
+        "service consistency"
+      ],
+      "growthSignals": [
+        "menu launch",
+        "national marketing campaign",
+        "competitor partnership"
+      ]
+    },
+    "searchQuery": "(title:\"Chief Marketing Officer\" OR title:\"Head of Operations\" OR title:\"Chief Executive Officer\") AND industry:\"Food & Beverage Services\" AND (companySize:101-200 OR companySize:201-500 OR companySize:501-1000 OR companySize:1001-5000) AND (revenue:\">1M<5M USD\" OR revenue:\">5M<10M USD\" OR revenue:\">10M<50M USD\") AND location:\"Egypt\" AND (fundingStage:\"Private Equity\" OR fundingStage:\"Public\") AND ((headline:\"in-house delivery\" OR summary:\"in-house delivery\") OR (headline:\"operational overhead\" OR summary:\"operational overhead\") OR (headline:\"customer data\" OR summary:\"customer data\")) AND ((headline:\"menu launch\" OR summary:\"menu launch\") OR (headline:\"marketing campaign\" OR summary:\"marketing campaign\") OR (headline:\"competitor partnership\" OR summary:\"competitor partnership\"))"
+  },
+  {
+    "icpName": "Grocery Retailers & Supermarkets",
+    "searchFilters": {
+      "industry": "Retail",
+      "companySize": "51–200",
+      "revenue": ">5M<10M USD",
+      "location": "Egypt",
+      "fundingStage": "Private Equity",
+      "titleKeywords": [
+        "Head of Ecommerce",
+        "Head of Retail Operations",
+        "Business Owner"
+      ],
+      "influencerTitles": [
+        "Category Manager",
+        "Store Manager"
+      ],
+      "keywordsInProfile": [
+        "last-mile logistics",
+        "inventory management",
+        "omnichannel",
+        "online grocery"
+      ],
+      "growthSignals": [
+        "store footfall",
+        "customer delivery",
+        "competitor delivery service"
+      ]
+    },
+    "searchQuery": "(title:\"Head of Ecommerce\" OR title:\"Head of Retail Operations\" OR title:\"Business Owner\") AND industry:\"Retail\" AND (companySize:11-50 OR companySize:51-200 OR companySize:201-500) AND (revenue:\">1M<5M USD\" OR revenue:\">5M<10M USD\") AND location:\"Egypt\" AND fundingStage:\"Private Equity\" AND ((headline:\"last-mile logistics\" OR summary:\"last-mile logistics\") OR (headline:\"inventory management\" OR summary:\"inventory management\") OR (headline:\"omnichannel\" OR summary:\"omnichannel\")) AND ((headline:\"store footfall\" OR summary:\"store footfall\") OR (headline:\"customer delivery\" OR summary:\"customer delivery\") OR (headline:\"competitor delivery\" OR summary:\"competitor delivery\"))"
+  },
+  {
+    "icpName": "Specialized Non-Food Retailers (Pharmacies, Florists)",
+    "searchFilters": {
+      "industry": "Retail",
+      "companySize": "1–10",
+      "revenue": null,
+      "location": "Cairo, Egypt",
+      "fundingStage": "Bootstrapped",
+      "titleKeywords": [
+        "Owner",
+        "Pharmacist",
+        "Store Manager"
+      ],
+      "influencerTitles": [],
+      "keywordsInProfile": [
+        "geographic reach",
+        "urgent purchases",
+        "on-demand",
+        "customer service"
+      ],
+      "growthSignals": [
+        "customer inquiries delivery",
+        "modernize business",
+        "e-commerce"
+      ]
+    },
+    "searchQuery": "(title:\"Owner\" OR title:\"Pharmacist\" OR title:\"Store Manager\") AND industry:\"Retail\" AND (companySize:1-10 OR companySize:11-50) AND location:\"Cairo, Egypt\" AND fundingStage:\"Bootstrapped\" AND ((headline:\"geographic reach\" OR summary:\"geographic reach\") OR (headline:\"urgent purchases\" OR summary:\"urgent purchases\") OR (headline:\"on-demand\" OR summary:\"on-demand\")) AND ((headline:\"customer delivery\" OR summary:\"customer delivery\") OR (headline:\"modernize\" OR summary:\"modernize\") OR (headline:\"e-commerce\" OR summary:\"e-commerce\"))"
+  }
+]

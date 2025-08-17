@@ -1,0 +1,312 @@
+Act as a senior strategy consultant and digital growth analyst. Based on the attached Growth Report data, your task is to produce a comprehensive, well-styled, formatted Ideal Customer Profile (ICP) report, structured and formatted exactly as described below. 
+
+The report must use business language, focused and precise value-driven insights, use professional language, no fluff. Use sector benchmarks, SOP standards, and customer journey best practices. Focus on insight-rich, actionable output with precision and value clarity. 
+
+Do not produce long text-based paragraphs, focus on presenting info and insights under clear headings and sub-headings with clear descriptions and in short precise sentences and bullet points for easy reading and narrative.
+
+The report must be tailored for the executive team and internal strategy team of the company, primarily focused on the primary market as a priority and secondary markets as applicable. Make sure all content is bullet point based and actionable.
+
+Report name: "[Company Name] Ideal Customer & Buyer Persona Profiles Report (ICPs)"
+
+## REQUIRED JSON OUTPUT STRUCTURE
+
+### 1. Introduction Section
+```json
+{
+  "introduction": {
+    "reportTitle": "[Company Name] Ideal Customer & Buyer Persona Profiles Report (ICPs)",
+    "purposeAndAudience": {
+      "description": "This framework is designed for [Company Name] to pinpoint their ideal business customers (B2B) and define the key individuals within those organizations (Buyer Personas). By documenting who to target and why, [Company Name]'s Marketing and Sales teams can:",
+      "benefits": [
+        "Craft targeted marketing campaigns that resonate with each segment's specific needs",
+        "Allocate resources efficiently by focusing on best-fit leads and high-value opportunities", 
+        "Refine service offerings and messaging to address the most pressing pain points of ideal customers"
+      ]
+    },
+    "keyTerms": {
+      "icp": "Describes the type of company that would benefit most from [Company Name]'s offerings",
+      "buyerPersona": "A semi-fictional individual within the ICP—such as a decision-maker or influencer—whose needs, motivations, and objections must be understood to drive engagement and conversion"
+    }
+  }
+}
+```
+
+### 2. B2B ICP Table (Create 5-8 distinct ICPs)
+Each ICP should follow this exact structure. Create comprehensive profiles based on the Growth Report insights:
+
+```json
+{
+  "b2bICPTable": {
+    "icpProfiles": [
+      {
+        "icpName": "Descriptive ICP Name (Geographic/Industry Focus)",
+        "priority": "High/Medium/Low",
+        "industryAndMarket": {
+          "industryFocus": "Primary industry vertical (e.g., SaaS, Manufacturing, Finance, Healthcare)",
+          "keyMarketTrends": [
+            "Emerging or ongoing trend 1 (automation, digital transformation, etc.)",
+            "Emerging or ongoing trend 2 (regulatory changes, market consolidation)",
+            "Emerging or ongoing trend 3 (customer behavior shifts, technology adoption)"
+          ],
+          "marketMaturity": "Whether the market is emerging, mature, or highly competitive"
+        },
+        "firmographics": {
+          "employeeCountRange": {
+            "min": 50,
+            "max": 500
+          },
+          "annualRevenueRange": {
+            "min": "$5M",
+            "max": "$50M"
+          },
+          "geographicFocus": [
+            "Primary region/city 1",
+            "Primary region/city 2",
+            "Primary region/city 3"
+          ],
+          "fundingStage": "Pre-seed/Series A/Series B/IPO/Bootstrapped/Not typically relevant"
+        },
+        "decisionMakerTitlesAndRoles": {
+          "primaryDecisionMakers": [
+            "CEO/Founder",
+            "CTO/VP Technology",
+            "CFO/Finance Director"
+          ],
+          "influencersAndChampions": [
+            "Department Head 1",
+            "Team Lead 1",
+            "Subject Matter Expert"
+          ],
+          "buyingCommitteeStructure": "Description of whether one person decides, or a formal committee/board is involved"
+        },
+        "businessObjectivesAndChallenges": {
+          "commonGrowthObjectives": [
+            "Specific growth goal 1 (market expansion, cost reduction)",
+            "Specific growth goal 2 (digital transformation, efficiency)",
+            "Specific growth goal 3 (competitive advantage, innovation)"
+          ],
+          "keyPainPoints": [
+            "Specific operational challenge 1",
+            "Specific strategic challenge 2", 
+            "Specific compliance/scaling challenge 3"
+          ]
+        },
+        "valueAlignment": {
+          "featureNeedMatch": "Specific ways your product/service addresses these challenges or objectives - be detailed and specific",
+          "roiPotential": "Quantified likely impact on revenue, cost savings, or process efficiency - include specific percentages or amounts where possible"
+        },
+        "bestFitIndicators": {
+          "growthRelatedTriggers": [
+            "Signal of readiness 1 (recent funding, acquisitions)",
+            "Signal of readiness 2 (organizational changes, expansion)",
+            "Signal of readiness 3 (technology upgrades, new initiatives)"
+          ],
+          "culturalOrTechStackSynergy": "Shared values or compatible technologies that support faster adoption",
+          "otherUniqueClues": [
+            "Industry award or recognition",
+            "Known strategic initiative",
+            "Brand reputation indicator"
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+### 3. Buyer Personas Table (Create 4-6 key personas)
+Create detailed buyer personas linked to the ICPs above:
+
+```json
+{
+  "buyerPersonasTable": {
+    "personas": [
+      {
+        "personaName": "Name (Title) - e.g., Sarah (CTO)",
+        "linkedICP": "Name of associated ICP from above",
+        "overview": {
+          "nameAndRole": "Full fictional name and specific job title",
+          "ageAndExperience": "Age range and years of experience in role/industry"
+        },
+        "goalsAndMotivations": {
+          "primaryObjectives": [
+            "What they want to achieve personally (career advancement, recognition)",
+            "What they want to achieve professionally (team efficiency, cost reduction)",
+            "What they want to achieve organizationally (competitive advantage, growth)"
+          ],
+          "successMetrics": [
+            "Key performance indicator 1 they're measured on",
+            "Key performance indicator 2 they care about",
+            "Personal satisfaction metric they value"
+          ]
+        },
+        "challengesAndPainPoints": {
+          "fearsAndFrustrations": [
+            "Specific roadblock or concern 1 (technical complexity, budget constraints)",
+            "Specific roadblock or concern 2 (team resistance, time limitations)",
+            "Specific roadblock or concern 3 (lack of expertise, risk aversion)"
+          ]
+        },
+        "preferredChannelsAndContent": {
+          "researchSources": [
+            "How they gather information 1 (industry publications, conferences)",
+            "How they gather information 2 (peer networks, online communities)",
+            "How they gather information 3 (vendor demos, analyst reports)"
+          ],
+          "contentFormats": [
+            "Content type 1 they prefer (whitepapers, case studies)",
+            "Content type 2 they consume (webinars, podcasts)",
+            "Content type 3 they trust (peer reviews, expert opinions)"
+          ]
+        },
+        "keyObjections": {
+          "reasonsToHesitate": [
+            "Common pushback 1 (budget limitations, ROI concerns)",
+            "Common pushback 2 (implementation complexity, resource requirements)",
+            "Common pushback 3 (vendor reliability, feature completeness)"
+          ]
+        },
+        "messagingAndValuePropFocus": {
+          "tailoredHooks": "Specific messaging angles that resonate with this persona - focus on their primary motivations and pain points"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 4. Implementation Strategy
+Provide actionable implementation guidance:
+
+```json
+{
+  "implementationStrategy": {
+    "executiveSummary": {
+      "totalICPs": "Number of ICPs identified",
+      "prioritySegments": [
+        "High priority ICP name 1",
+        "High priority ICP name 2"
+      ],
+      "keyInsights": [
+        "Strategic insight 1 from the analysis",
+        "Strategic insight 2 about market opportunity",
+        "Strategic insight 3 about competitive positioning"
+      ],
+      "expectedROI": "Projected return on investment from targeting these ICPs"
+    },
+    "searchConfigurations": [
+      {
+        "icpName": "ICP Name from above",
+        "linkedInSearchQueries": [
+          {
+            "queryString": "Optimized LinkedIn Boolean search string for decision makers",
+            "targetAudience": "Primary decision makers (C-level, VP-level)",
+            "expectedResults": "Estimated number of potential matches"
+          },
+          {
+            "queryString": "Optimized LinkedIn Boolean search string for influencers", 
+            "targetAudience": "Key influencers and champions",
+            "expectedResults": "Estimated number of potential matches"
+          }
+        ],
+        "searchFilters": {
+          "industry": ["Industry keyword 1", "Industry keyword 2"],
+          "location": ["Geographic target 1", "Geographic target 2"],
+          "companySize": {
+            "min": "Minimum employee count",
+            "max": "Maximum employee count"
+          },
+          "titleKeywords": ["Title keyword 1", "Title keyword 2", "Title keyword 3"],
+          "companySignals": ["Growth signal 1", "Growth signal 2", "Technology indicator"]
+        }
+      }
+    ],
+    "messagingFramework": {
+      "coreValuePropositions": [
+        "Primary value proposition for target market",
+        "Secondary value proposition highlighting differentiation"
+      ],
+      "keyDifferentiators": [
+        "Unique differentiator 1 vs competitors",
+        "Unique differentiator 2 in market positioning"
+      ],
+      "competitivePositioning": "How to position against main competitors based on Growth Report insights"
+    }
+  }
+}
+```
+
+### 5. Market Intelligence & Recommendations
+Strategic insights and next steps:
+
+```json
+{
+  "marketIntelligenceAndRecommendations": {
+    "marketAnalysis": {
+      "marketSize": "Total addressable market size and segmentation",
+      "competitiveLandscape": "Key competitors and their positioning based on Growth Report",
+      "marketTrends": [
+        "Market trend 1 affecting target ICPs",
+        "Market trend 2 creating opportunities",
+        "Market trend 3 posing challenges"
+      ],
+      "opportunityAreas": [
+        "Market opportunity 1 identified from Growth Report",
+        "Market opportunity 2 based on competitive analysis"
+      ]
+    },
+    "strategicRecommendations": {
+      "shortTerm": [
+        "0-3 months: Immediate action 1",
+        "0-3 months: Quick win initiative 2"
+      ],
+      "mediumTerm": [
+        "3-12 months: Strategic initiative 1",
+        "3-12 months: Market expansion plan 2"
+      ],
+      "longTerm": [
+        "12+ months: Long-term strategy 1",
+        "12+ months: Market leadership goal 2"
+      ]
+    },
+    "successMetrics": {
+      "leadQuality": "Specific metrics to track lead quality improvement (e.g., lead scoring, qualification rates)",
+      "conversionRates": "Expected improvements in conversion rates by ICP segment",
+      "salesCycleReduction": "Anticipated reduction in sales cycle length and complexity"
+    }
+  }
+}
+```
+
+## ANALYSIS REQUIREMENTS
+
+Based on the Growth Report JSON data provided, you must:
+
+1. **Extract Company Intelligence**: Analyze the company's business model, market position, competitive landscape, and growth opportunities from the Growth Report.
+
+2. **Identify Market Segments**: Based on the company's offerings, challenges, and opportunities identified in the Growth Report, create 5-8 distinct ICP profiles that represent realistic target segments.
+
+3. **Define Buyer Personas**: For each major ICP, create 1-2 buyer personas representing key decision-makers and influencers.
+
+4. **Create Search Strategies**: Develop specific LinkedIn search queries and filters for each ICP that sales teams can immediately use.
+
+5. **Provide Strategic Guidance**: Based on the Growth Report insights, recommend specific strategies for targeting each ICP effectively.
+
+## QUALITY STANDARDS
+
+- **Data-Driven**: Base all ICPs and personas on actual insights from the Growth Report data
+- **Actionable**: Every recommendation must be specific and immediately implementable
+- **Quantified**: Include specific numbers, percentages, and metrics wherever possible
+- **Professional**: Use business language appropriate for executive audiences
+- **Comprehensive**: Cover all major aspects of customer profiling and go-to-market strategy
+- **Realistic**: Ensure all ICPs and personas reflect genuine market opportunities
+
+## OUTPUT REQUIREMENTS
+
+- Return ONLY the complete JSON structure with all sections filled
+- No markdown formatting or explanations outside the JSON
+- Ensure all arrays have multiple relevant items
+- Make all content specific to the company and market based on Growth Report analysis
+- Include quantified metrics and specific examples throughout
+
+Generate the complete ICP analysis now based on the Growth Report data provided below:

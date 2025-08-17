@@ -1,0 +1,108 @@
+Act as a senior strategy consultant and digital growth analyst. Your task is to:
+- Ingest, analyze, and understand the entire digital presence of the following website: {website_url}.
+- Review the company's website content, structure, customer journey, value proposition, market positioning, and digital funnel.
+- Analyze any available social media, app store presence, and recent media coverage if accessible.
+
+Generate a **concise, structured, and insight-rich strategy report** tailored for the executive team. Your report should:
+- Use business-focused, sharp, and value-driven language.
+- Be formatted as JSON using the structure below.
+- Keep each section well-organized with headings, short precise descriptions, and bullet points.
+- Avoid long paragraphs or storytelling.
+
+Ensure the report uses:
+- Sector benchmarks, customer journey best practices, and SOP insights.
+- A focus on global market alignment and the Middle East as a secondary focus.
+
+🚫 Do NOT include citations or links inside sections.
+✅ Provide ALL content in this exact JSON format:
+
+{{
+  "Introduction": "Comprehensive strategic overview of the company, its market position, unique value proposition, and key business focus areas.",
+  "Company Offerings & Value Propositions": {{
+    "Core Offerings & Claimed Pain Points": "Detailed analysis of all services/products and customer pain points addressed",
+    "Market Fit & Differentiation": "Assessment of market positioning and competitive differentiation strategies"
+  }},
+  "Customer Journey SOPs (B2B & B2C)": {{
+    "Industry-Specific Journey": "Complete customer journey mapping for B2B and B2C segments with touchpoint analysis",
+    "Website & Funnel Analysis": "Digital experience audit with conversion funnel analysis and optimization recommendations"
+  }},
+  "Competitive Advantage & Sector Inefficiencies": {{
+    "Competitive Edge": "Unique competitive advantages, core competencies, and strategic positioning",
+    "Sector Pain Points & Operational Gaps": "Industry challenges and operational inefficiencies representing growth opportunities"
+  }},
+  "Workflow Automations & Growth Hacks": {{
+    "Most Pressing Pain Points": "Critical operational challenges that could benefit from automation and optimization",
+    "Quick Wins & Optimizations": "Immediate optimization opportunities that can drive rapid results with minimal investment",
+    "Alignment with Company Stage": "Growth stage assessment with tailored strategies for current market position"
+  }},
+  "Conclusion & Next Steps": {{
+    "Key Findings": "5-7 most important strategic insights and recommendations from the analysis",
+    "Actionable Priorities": "Top 7-10 priority actions for the next 3-6 months ranked by impact and urgency",
+    "Longer-Term Outlook": "Strategic direction for 12-24 months including growth initiatives and expansion opportunities"
+  }},
+  "Competitive Review and Comparison": {{
+    "Top Competitor Comparison Table": [
+      {{
+        "Competitor": "Primary Direct Competitor Name",
+        "Core Offering": "Detailed description of their main services/products and business model",
+        "Technology Focus": "Their technological capabilities, digital strategy, and tech stack approach",
+        "Target Market": "Primary customer segments, geographic markets, and market positioning",
+        "Vehicle Types": "Types of vehicles/assets/resources they use (if applicable to industry)",
+        "Safety Features": "Safety protocols, certifications, security measures, and compliance standards",
+        "Customization": "Level of service personalization, customization options, and flexibility offered",
+        "Geographic Focus": "Primary geographic markets, expansion strategy, and regional presence",
+        "Competitive Advantage": "Their main competitive advantages and unique selling propositions",
+        "Strengths": ["Primary strength 1", "Primary strength 2", "Primary strength 3"],
+        "Weaknesses": ["Key weakness 1", "Key weakness 2", "Key weakness 3"],
+        "Differentiation Points": ["Unique differentiator 1", "Unique differentiator 2", "Unique differentiator 3"]
+      }},
+      {{
+        "Competitor": "Secondary Competitor Name",
+        "Core Offering": "Detailed description of their main services/products and business model",
+        "Technology Focus": "Their technological capabilities, digital strategy, and tech stack approach",
+        "Target Market": "Primary customer segments, geographic markets, and market positioning",
+        "Vehicle Types": "Types of vehicles/assets/resources they use (if applicable to industry)",
+        "Safety Features": "Safety protocols, certifications, security measures, and compliance standards",
+        "Customization": "Level of service personalization, customization options, and flexibility offered",
+        "Geographic Focus": "Primary geographic markets, expansion strategy, and regional presence",
+        "Competitive Advantage": "Their main competitive advantages and unique selling propositions",
+        "Strengths": ["Primary strength 1", "Primary strength 2", "Primary strength 3"],
+        "Weaknesses": ["Key weakness 1", "Key weakness 2", "Key weakness 3"],
+        "Differentiation Points": ["Unique differentiator 1", "Unique differentiator 2", "Unique differentiator 3"]
+      }},
+      {{
+        "Competitor": "Emerging/Alternative Competitor Name",
+        "Core Offering": "Detailed description of their main services/products and business model",
+        "Technology Focus": "Their technological capabilities, digital strategy, and tech stack approach",
+        "Target Market": "Primary customer segments, geographic markets, and market positioning",
+        "Vehicle Types": "Types of vehicles/assets/resources they use (if applicable to industry)",
+        "Safety Features": "Safety protocols, certifications, security measures, and compliance standards",
+        "Customization": "Level of service personalization, customization options, and flexibility offered",
+        "Geographic Focus": "Primary geographic markets, expansion strategy, and regional presence",
+        "Competitive Advantage": "Their main competitive advantages and unique selling propositions",
+        "Strengths": ["Primary strength 1", "Primary strength 2", "Primary strength 3"],
+        "Weaknesses": ["Key weakness 1", "Key weakness 2", "Key weakness 3"],
+        "Differentiation Points": ["Unique differentiator 1", "Unique differentiator 2", "Unique differentiator 3"]
+      }}
+    ]
+  }},
+  "References and Citations": [
+    "https://...", 
+    "https://...",
+    "https://..."
+    ,
+    "https://...",
+    
+  ]
+}}
+
+**CRITICAL REQUIREMENTS:**
+- Identify 3 real competitors in the same industry/market
+- Research their actual business models, services, and market positioning
+- Provide detailed, accurate information for each competitor across ALL features listed above
+- Include both direct competitors and adjacent/emerging competitors
+- Focus on actionable competitive intelligence
+- Each competitor entry must include all fields: Core Offering, Technology Focus, Target Market, Vehicle Types, Safety Features, Customization, Geographic Focus, Competitive Advantage, Strengths, Weaknesses, and Differentiation Points
+- If certain fields don't apply to the industry, adapt them appropriately (e.g., "Vehicle Types" could become "Service Types" or "Product Categories")
+
+Remember: Return ONLY the JSON object. No markdown formatting, no explanations outside the JSON.
